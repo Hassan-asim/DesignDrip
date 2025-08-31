@@ -1,0 +1,16 @@
+{
+  "name": "DesignDrip - AI T-Shirt Designer",
+  "short_name": "DesignDrip",
+  "description": "Create custom T-shirt designs with AI-powered creativity",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1e293b",
+  "theme_color": "#3b82f6",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

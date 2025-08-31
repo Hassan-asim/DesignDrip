@@ -1,0 +1,2 @@
+public/t_shirt_site.glb filter=lfs diff=lfs merge=lfs -text
+public/scene.splinecode filter=lfs diff=lfs merge=lfs -text

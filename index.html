@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DesignDrip - AI T-Shirt Designer</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Meta tags for social sharing -->
+    <meta name="description"
+        content="Create custom T-shirt designs with AI-powered creativity. Describe your vision and let AI bring it to life on a virtual tee." />
+    <meta name="keywords" content="AI, T-shirt design, fashion, custom design, AI art, DesignDrip" />
+    <meta name="author" content="DesignDrip" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://your-domain.com/" />
+    <meta property="og:title" content="DesignDrip - AI T-Shirt Designer" />
+    <meta property="og:description" content="Create custom T-shirt designs with AI-powered creativity" />
+    <meta property="og:image" content="https://your-domain.com/og-image.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://your-domain.com/" />
+    <meta property="twitter:title" content="DesignDrip - AI T-Shirt Designer" />
+    <meta property="twitter:description" content="Create custom T-shirt designs with AI-powered creativity" />
+    <meta property="twitter:image" content="https://your-domain.com/og-image.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'orbitron': ['Orbitron', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Orbitron', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Fallback styles in case Tailwind doesn't load */
+        .fallback-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: white;
+        }
+
+        .fallback-header {
+            background: rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .fallback-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #667eea, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .fallback-content {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .fallback-button {
+            background: linear-gradient(45deg, #667eea, #f093fb);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            margin: 0.5rem;
+        }
+
+        /* Custom scrollbar for a more futuristic feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .dark ::-webkit-scrollbar-thumb {
+            background: #4f46e5;
+            border-radius: 4px;
+        }
+
+        .light ::-webkit-scrollbar-thumb {
+            background: #818cf8;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a5b4fc;
+        }
+    </style>
+
+    <!-- ES Module Shims for import maps -->
+    <script async src="https://ga.jspm.io/npm:es-module-shims@1.10.0/dist/es-module-shims.js"></script>
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.3.1",
+    "react-dom/client": "https://esm.sh/react-dom@18.3.1/client",
+    "@google/genai": "https://esm.sh/@google/genai@0.14.0",
+    "three": "https://esm.sh/three@0.165.0",
+    "@react-three/fiber": "https://esm.sh/@react-three/fiber@8.16.8",
+    "@react-three/drei": "https://esm.sh/@react-three/drei@9.107.0",
+    "framer-motion": "https://esm.sh/framer-motion@11.2.12",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/"
+  }
+}
+</script>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <!-- Fallback content in case React doesn't load -->
+    <div id="fallback" style="display: none;" class="fallback-bg">
+        <div class="fallback-header">
+            <div class="fallback-title">DesignDrip</div>
+            <button class="fallback-button" onclick="toggleFallbackTheme()">Toggle Theme</button>
+        </div>
+        <div class="fallback-content">
+            <h1>DesignDrip - AI T-Shirt Designer</h1>
+            <p>Create custom T-shirt designs with AI-powered creativity</p>
+            <button class="fallback-button" onclick="location.reload()">Reload App</button>
+        </div>
+    </div>
+
+    <script>
+        // Show fallback if React doesn't load within 5 seconds
+        setTimeout(() => {
+            if (!document.getElementById('root').children.length) {
+                document.getElementById('fallback').style.display = 'block';
+            }
+        }, 5000);
+
+        function toggleFallbackTheme() {
+            document.body.classList.toggle('dark');
+        }
+    </script>
+
+    <script type="module" src="/index.tsx"></script>
+</body>
+
+</html>
